@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 MAINTAINER Complemento <https://www.complemento.net.br>
 
 # Definitions
-ENV OTRS_VERSION=6.0.10
+ENV OTRS_VERSION=6.0.18
 ENV LIGERO_REPOSITORY=6.0.0
 
 RUN apt-get update && \
@@ -10,10 +10,10 @@ RUN apt-get update && \
     apt-utils \
     libterm-readline-perl-perl && \
     apt-get install -y locales && \
-    locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
+    locale-gen pt_BR.UTF-8
+ENV LANG pt_BR.UTF-8
+ENV LANGUAGE pt_BR:pt
+ENV LC_ALL pt_BR.UTF-8
 
 RUN apt-get install -y apache2 git bash-completion cron sendmail curl vim wget mysql-client
 
