@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Complemento <https://www.complemento.net.br>
 
 # Definitions
@@ -10,10 +10,10 @@ RUN apt-get update && \
     apt-utils \
     libterm-readline-perl-perl && \
     apt-get install -y locales && \
-    locale-gen pt_BR.UTF-8
-ENV LANG pt_BR.UTF-8
-ENV LANGUAGE pt_BR:pt
-ENV LC_ALL pt_BR.UTF-8
+    locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN apt-get install -y apache2 git bash-completion cron sendmail curl vim wget mysql-client
 
@@ -62,8 +62,12 @@ RUN apt-get install -y  libarchive-zip-perl \
                         libxml-libxml-perl \
                         libxml-libxslt-perl \
                         libxml-parser-perl \
-                        libyaml-libyaml-perl
-
+                        libyaml-libyaml-perl \
+ libapache2-mod-perl2 libdbd-mysql-perl libtimedate-perl libnet-dns-perl libnet-ldap-perl \
+    libio-socket-ssl-perl libpdf-api2-perl libdbd-mysql-perl libsoap-lite-perl libtext-csv-xs-perl \
+    libjson-xs-perl libapache-dbi-perl libxml-libxml-perl libxml-libxslt-perl libyaml-perl \
+    libarchive-zip-perl libcrypt-eksblowfish-perl libencode-hanextra-perl libmail-imapclient-perl \
+    libtemplate-perl
 
 RUN /opt/src/otrs/bin/otrs.SetPermissions.pl --web-group=www-data
 
